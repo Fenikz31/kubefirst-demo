@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: git@github.com:Pkan-Iv/pkan-gitops.git
     path: registry/kubefirst/components/new_minio
-    targetRevision: HEAD
+    targetRevision: main
   destination:
     server: https://kubernetes.default.svc
     namespace: minio
