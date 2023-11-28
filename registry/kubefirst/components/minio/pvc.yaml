@@ -4,7 +4,7 @@ kind: StorageClass
 metadata:
   name: directpv-min-io
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: Immediate
 ___
 apiVersion: v1
 kind: PersistentVolume
@@ -12,12 +12,12 @@ metadata:
   name: directpv-min-io
 spec:
   capacity:
-    storage: 1Ti
+    storage: 25Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-storage
+  storageClassName: directpv-min-io
   local:
     path: /home/fenikz/dev/data
 ___
