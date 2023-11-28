@@ -14,26 +14,11 @@ spec:
       match: Host(`minio.k8s.dev.io`)
       services:
         - name: minio
-          port: 80
-  tls:
-    secretName: minio-tls
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: minio-console
-  namespace: minio
-  annotations:
-    kubernetes.io/ingress.class: traefik-external
-    argocd.argoproj.io/sync-wave: '10'
-spec:
-  entryPoints:
-    - websecure
-  routes:
+          port: 9000
     - kind: Rule
       match: Host(`minio-console.k8s.dev.io`)
       services:
         - name: minio-console
-          port: 80
+          port: 9090
   tls:
     secretName: minio-console-tls
