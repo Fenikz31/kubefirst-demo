@@ -42,10 +42,12 @@ spec:
             - server
             - /data
           env:
-            - name: MINIO_ACCESS_KEY
+            - name: MINIO_ROOT_USER
               value: k-ray
-            - name: MINIO_SECRET_KEY
+            - name: MINIO_ROOT_PASSWORD
               value: feedkraystars
+            - name: MINIO_BROWSER_REDIRECT_URL
+              value: https://minio-console.k8s.dev.io
           ports:
             - containerPort: 9000
           volumeMounts:
