@@ -19,6 +19,8 @@ spec:
   ports:
     - port: 9000
       targetPort: 9000
+    - port: 9090
+      targetPort: 9090
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -41,6 +43,7 @@ spec:
           args:
             - server
             - /data
+            - --console-address ":9090"
           env:
             - name: MINIO_ROOT_USER
               value: k-ray
@@ -50,9 +53,16 @@ spec:
               value: https://minio-console.k8s.dev.io
           ports:
             - containerPort: 9000
-          volumeMounts:
-            - name: data
-              mountPath: /data
+              name: web
+            - containerPort: 9090
+              name: console
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"
+            requests:
+              cpu: "0.2"
+              memory: "256Mi"
       volumes:
         - name: data
           persistentVolumeClaim:
