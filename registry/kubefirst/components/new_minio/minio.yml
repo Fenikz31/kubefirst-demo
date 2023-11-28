@@ -66,18 +66,18 @@ spec:
             requests:
               cpu: 1000m
               memory: 1Gi
-          livenessProbe:
-            exec:
-              command: ["curl", "-f", "http://localhost:9000/minio/health/live"]
-            initialDelaySeconds: 3
-            periodSeconds: 3
-            timeoutSeconds: 3
-          readinessProbe:
-            exec:
-              command: ["curl", "-f", "http://localhost:9000/minio/health/live"]
-            initialDelaySeconds: 3
-            periodSeconds: 2
-            timeoutSeconds: 1
+          # livenessProbe:
+          #   exec:
+          #     command: ["curl", "-f", "http://localhost:9000/minio/health/live"]
+          #   initialDelaySeconds: 3
+          #   periodSeconds: 3
+          #   timeoutSeconds: 3
+          # readinessProbe:
+          #   exec:
+          #     command: ["curl", "-f", "http://localhost:9000/minio/health/live"]
+          #   initialDelaySeconds: 3
+          #   periodSeconds: 2
+          #   timeoutSeconds: 1
       volumes:
         - name: data
           persistentVolumeClaim:
