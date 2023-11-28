@@ -1,0 +1,22 @@
+metaphor:
+  image:
+    repository: ghcr.io/pkan-iv/metaphor
+  imagePullSecrets:
+    - name: docker-config
+  ingress:
+    enabled: true
+    className: ''
+    hosts:
+      - host: metaphor-production.k8s.dev.io
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: metaphor-production-tls
+        hosts:
+          - metaphor-production.k8s.dev.io
+  metaphor:
+    host: https://metaphor-production.k8s.dev.io/api
+    console: https://kubefirst.k8s.dev.io
+  vaultMountPoint: kubefirst
+  vaultSecretPath: production/metaphor
