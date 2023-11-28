@@ -31,7 +31,8 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: directpv-min-io
   resources:
     requests:
-      storage: 512Mi
+      storage: "512Mi"
+  storageClassName: directpv-min-io
+
