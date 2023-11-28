@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: git@github.com:Pkan-Iv/pkan-gitops.git
-    path: registry/kubefirst/components/minio
+    path: registry/kubefirst/components/new_minio
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
