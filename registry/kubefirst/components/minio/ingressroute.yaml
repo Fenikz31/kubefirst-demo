@@ -15,24 +15,24 @@ spec:
       services:
         - name: minio
           port: 9090
-  tls:
-    secretName: minio-tls
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: minio-console
-  namespace: minio
-  annotations:
-    argocd.argoproj.io/sync-wave: '10'
-spec:
-  entryPoints:
-    - websecure
-  routes:
     - kind: Rule
       match: Host(`minio-console.k8s.dev.io`)
       services:
         - name: minio
           port: 9000
   tls:
-    secretName: minio-console-tls
+    secretName: minio-tls
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: minio-console
+#   namespace: minio
+#   annotations:
+#     argocd.argoproj.io/sync-wave: '10'
+# spec:
+#   entryPoints:
+#     - websecure
+#   routes:
+#   tls:
+#     secretName: minio-console-tls
