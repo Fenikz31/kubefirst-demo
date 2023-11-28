@@ -14,31 +14,13 @@ spec:
       values: |-
         environment:
           MINIO_BROWSER_REDIRECT_URL: https://minio-console.k8s.dev.io
-        ingress:
-          enabled: true
-          path: /
-          hosts:
-            - minio.k8s.dev.io
-          tls:
-            - secretName: minio-tls
-              hosts:
-                - minio.k8s.dev.io
-        consoleIngress:
-          enabled: true
-          path: /
-          hosts:
-            - minio-console.k8s.dev.io
-          tls:
-            - secretName: minio-console-tls
-              hosts:
-                - minio-console.k8s.dev.io
         replicas: 1
         rootUser: k-ray
         rootPassword: feedkraystars
         persistence:
           enabled: true
           existingClaim: local-path-pvc
-          storageClass: "local-path"
+          storageClass: "directpv-min-io"
           accessMode: ReadWriteOnce
           size: 512Mi
         resources:
