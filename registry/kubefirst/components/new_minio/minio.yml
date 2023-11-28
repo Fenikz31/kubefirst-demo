@@ -45,7 +45,8 @@ spec:
           args:
             - server
             - /data
-            - '--console-address ":9090"'
+            - --console-address
+            - :9090
           env:
             - name: MINIO_ROOT_USER
               value: k-ray
