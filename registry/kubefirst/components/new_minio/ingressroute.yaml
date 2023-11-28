@@ -18,7 +18,7 @@ spec:
     - kind: Rule
       match: Host(`minio-console.k8s.dev.io`)
       services:
-        - name: minio-console
+        - name: minio
           port: 9090
   tls:
-    secretName: minio-console-tls
+    secretName: minio-tls
