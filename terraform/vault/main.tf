@@ -6,7 +6,9 @@ terraform {
   backend "s3" {
     bucket   = "kubefirst-state-store"
     key      = "terraform/vault/terraform.tfstate"
-    endpoint = "https://minio.k8s.dev.io"
+    endpoints = {
+      s3 = "https://minio.k8s.dev.io"
+    }
 
     access_key                  = "k-ray"
     secret_key                  = "feedkraystars"
@@ -14,6 +16,6 @@ terraform {
     skip_credentials_validation = true
     skip_metadata_api_check     = true
     skip_region_validation      = true
-    force_path_style            = true
+    use_path_style            = true
   }
 }

@@ -4,6 +4,7 @@ metadata:
   name: atlantis
   namespace: atlantis
   annotations:
+    kubernetes.io/ingress.class: traefik-external
     argocd.argoproj.io/sync-wave: '10'
 spec:
   routes:
