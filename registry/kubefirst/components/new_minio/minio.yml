@@ -19,8 +19,10 @@ spec:
   ports:
     - port: 9000
       targetPort: 9000
+      name: web
     - port: 9090
       targetPort: 9090
+      name: console
 ---
 apiVersion: apps/v1
 kind: Deployment
